@@ -2,6 +2,7 @@ from phi.agent import Agent
 from phi.model.groq import Groq
 from phi.tools.yfinance import YFinanceTools
 from phi.tools.duckduckgo import DuckDuckGo
+
 import openai
 import os
 from dotenv import load_dotenv
@@ -10,7 +11,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-# Web Search Agent ===========
+# Web Search Agent ============
 web_search_agent = Agent(
     name = "Web Search Agent",
     role = "Search the web for the information",
