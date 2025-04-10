@@ -23,12 +23,11 @@ web_search_agent = Agent(
     markdown=True,
 )
 
-
 # Financial Agent =============
 finance_agent = Agent(
-    name="Finance AI Agent",
-    model=Groq(id="llama3-70b-8192"),
-    tools=[
+    name = "Finance AI Agent",
+    model = Groq(id="llama3-70b-8192"),
+    tools = [
         YFinanceTools(
             stock_price=True,
             analyst_recommendations=True,
@@ -36,13 +35,13 @@ finance_agent = Agent(
             company_news=True,
         ),
     ],
-    instructions=["Use tables to display the data"],
-    markdown=True,
+    instructions = ["Use tables to display the data"],
+    markdown = True,
 )
 
-
-# Serve the Playground
+# Serve the Playground ============
 app = Playground(agents=[finance_agent, web_search_agent]).get_app()
+
 
 if __name__ == "__main__":
     serve_playground_app("playground:app", reload=True)
